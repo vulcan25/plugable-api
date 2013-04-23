@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from .bananas import Bananas
-from .base import bmi_api
+from .base import the_api
 
 
 the_api.add_url_rule('/bananas', view_func=Bananas.as_view('bananas'))
