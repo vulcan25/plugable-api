@@ -1,9 +1,9 @@
 from flask import Blueprint, make_response, json, current_app
 from bson import ObjectId
 from flask.views import MethodView
-from ..pymongo import DuplicateKeyError
-from .exceptions import BadRequest, Unauthorized, Forbidden
-from ..security import get_current_user
+#from ..pymongo import DuplicateKeyError
+from werkzeug.exceptions import BadRequest, Unauthorized, Forbidden
+#from ..security import get_current_user
 
 the_api = Blueprint('the_api', __name__)
 
@@ -16,8 +16,8 @@ class JsonEncoder(json.JSONEncoder):
 
 def handle_exception(e):
     # handle common exceptions
-    if isinstance(e, DuplicateKeyError):
-        raise BadRequest(str(e))
+    #if isinstance(e, DuplicateKeyError):
+    raise BadRequest(str(e))
 
 
 def json_converter(f):
